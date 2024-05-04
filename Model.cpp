@@ -111,24 +111,17 @@ void Model::removeSupply(const string& shuttle, const string& dest){
    fortress[dest]->addSupply(shuttles[shuttle]->removeSupply());
 }
 void Model::createMid(const string& spaceshipName, const string& pilotName){
-    if(spaceshipName == "midshipman"){
-        MidshipmanFactory factory;
-        std::unique_ptr<ImperialAgent> agent(factory.createAgent(spaceshipName, pilotName));
 
 // Ensure spaceshipName is unique here
         if (agents.find(pilotName) != agents.end()) {
             std::cerr << "Error: An agent with the name '" << pilotName << "' already exists." << std::endl;
+            return;
         } else {
+            MidshipmanFactory factory;
+            std::unique_ptr<ImperialAgent> agent(factory.createAgent(spaceshipName, pilotName));
             agents[pilotName] = std::move(agent);
         }
 
-// Print all agents to verify contents of the map
-        std::cout << "Current list of agents:" << std::endl;
-        for (const auto& pair : agents) {
-            pair.second->suitableSpaceship();
-        }
-
-    }
 }
 void Model::createCommander(const string& spaceshipName, const string& pilotName){
         CommanderFactory  factory;
@@ -169,6 +162,10 @@ void Model::createAdmiral(const string& spaceshipName, const string& pilotName){
     }
 }
 void Model::create(const string& spaceshipName, const string& pilotName, const string& coordinates = "") {
+    if (agents.find(pilotName) == agents.end()){
+        cerr<<pilotName<<"No existed pilot "<<endl;
+        return;
+    }
     if (shuttles.find(spaceshipName) != shuttles.end()) {
         cerr << "Error: Spaceship '" << spaceshipName << "' already exists." << endl;
         return;  // Stop the creation process
@@ -274,6 +271,10 @@ void Model::createStation(const string& name, double x_cord, double y_cord, int 
     stations[name] = std::move(station);
 }
 void Model::startSupply(const std::string& shuttleName, const std::string& startStation, const std::string& endStation) {
+    if (shuttles.find(shuttleName) == shuttles.end()){
+        cout<<"shuttle "<<shuttleName <<" doesnt exists"<<endl;
+        return;
+    }
     supplyStationName =startStation;
     if(startStation == endStation){
 

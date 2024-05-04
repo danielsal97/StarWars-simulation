@@ -10,7 +10,7 @@
 
 class ImperialAgent {
 public:
-    virtual void suitableSpaceship() = 0;
+    virtual string suitableSpaceship() = 0;
     virtual ~ImperialAgent() = default;  // Provide a definition, even if empty.
 };
 

@@ -15,8 +15,8 @@ public:
         std::cout << Military_Rank << std::endl << name << std::endl;
     }
 
-    void suitableSpaceship() override {
-        std::cout << Military_Rank << "yessssss"<< name << std::endl;
+    string suitableSpaceship() override {
+        return "bomber";
     }
 };
 #endif //FINELCPP_PROJECT_COMMANDER_H

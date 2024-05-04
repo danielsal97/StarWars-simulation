@@ -15,8 +15,8 @@ Midshipman(const std::string& Military_Rank, const std::string& name): Military_
     std::cout << Military_Rank << std::endl << name << std::endl;
 }
 
-void suitableSpaceship() override {
-std::cout << Military_Rank << "yessssss"<< name << std::endl;
+string suitableSpaceship() override {
+return "shuttle";
 }
 };
 
