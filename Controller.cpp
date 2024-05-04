@@ -82,7 +82,7 @@ void Controller::processCommand(int i, char **argv) {
             if (second_word == "shuttle") {
 //                iss >> third_word >> forth_word >> fifth_word >> sixth;
                 if (!iss.fail()) {
-                    model.create(third_word, forth_word, fifth_word + sixth);
+                    model.createShuttle(third_word, forth_word, fifth_word + sixth);
                 } else {
                     cout << "Error: Missing parameters for 'create shuttle' command." << endl;
                 }
