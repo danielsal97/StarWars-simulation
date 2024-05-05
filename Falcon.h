@@ -11,7 +11,6 @@
 using namespace std;
 class Falcon : public SpaceShip {
     std::string spaceship_Name;
-    std::string pilot_Name;
     double x = 0, y= 0, speed = 0,update_x = 0, update_y = 0, degree = 0;
     int power = 5;
     State state = Docked;
@@ -22,8 +21,8 @@ class Falcon : public SpaceShip {
     void position(double x_cords, double y_cords) override{};
 
 public:
-    Falcon(std::string spaceshipName, string pilotName, double x_cords, double y_cords)
-            : spaceship_Name(std::move(spaceshipName)), pilot_Name(std::move(pilotName)),
+    Falcon(std::string spaceshipName, double x_cords, double y_cords)
+            : spaceship_Name(std::move(spaceshipName)),
               x(x_cords), y(y_cords), speed(FalconSpeed), update_x(0), update_y(0),
               degree(0), power(5), state(Docked) {}
     void status() override;

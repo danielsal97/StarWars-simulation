@@ -17,8 +17,10 @@ class Controller {
 public:
     static void run(int i, char **argv);
 private:
-    static void modelCommands( Model &model, const string& command);
+    static void modelCommands( Model &model, const string& command);//
     static void processCommand(int i, char **pString);
+    static int safeStoi(const std::string& str); //safe stoi converting
+    static unsigned int safeStoui(const std::string& str);//safe stoui converting
 };
 
 

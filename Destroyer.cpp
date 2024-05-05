@@ -7,14 +7,20 @@
 #include <utility>
 
 Destroyer::Destroyer(std::string  spaceshipName, std::string  pilotName, double x, double y)
-        : spaceship_Name(std::move(spaceshipName)), pilot_Name(std::move(pilotName)), x(x), y(y), state(MovingOnCourse) {}
+        : spaceship_Name(std::move(spaceshipName)), pilot_Name(std::move(pilotName)), x(x), y(y), dest_x(0), dest_y(0), state(MovingOnCourse) {}
 
 void Destroyer::stop() {
     std::cout << "Shuttle has stopped." << std::endl;
 }
 
 void Destroyer::destination(const std::string& dest, double x_cord, double y_cord) {
-    std::cout << "Heading to " << dest << "." << std::endl;
+    state = MovingTo;
+    dest_x = x_cord;
+    dest_y = y_cord;
+    double dis = sqrt(pow(x - x_cord, 2) + pow(y - y_cord, 2));
+    update_x = (x_cord - x) / dis * destroyerSpeed / 1000;
+    update_y = (y_cord - y) / dis * destroyerSpeed / 1000;
+    destName = dest;
 }
 
 void Destroyer::status() {
@@ -46,8 +52,21 @@ void Destroyer::position(double x_cord, double y_cord) {
 }
 
 void Destroyer::updateCords() {
-    x += update_x;
-    y += update_y;
+    if (update_x > dest_x - x or x == dest_x) {
+        x = dest_x;
+    } else {
+        x += update_x;
+    }
+    if (update_y > dest_y - y or  y == dest_y) {
+        y = dest_y;
+    } else {
+        y += update_y;
+    }
+    if(x == dest_x and y == dest_y){
+        update_x =0;
+        update_y =0;
+        state =Docked;
+    }
 }
 
 void Destroyer::shoot(double x_cord, double y_cord) {

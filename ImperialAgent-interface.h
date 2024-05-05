@@ -9,6 +9,7 @@
 #include <iostream>
 
 class ImperialAgent {
+    int assigned =0;
 public:
     virtual string suitableSpaceship() = 0;
     virtual ~ImperialAgent() = default;  // Provide a definition, even if empty.

@@ -9,15 +9,21 @@
 
 class Midshipman : public ImperialAgent {
     string Military_Rank;
-string name;
+    int assigned;
+    string name;
 public:
-Midshipman(const std::string& Military_Rank, const std::string& name): Military_Rank(Military_Rank), name(name){
-    std::cout << Military_Rank << std::endl << name << std::endl;
+Midshipman(const std::string& Military_Rank, const std::string& name): Military_Rank(std::move(Military_Rank)), assigned(0), name(std::move(name)){
+}
+string suitableSpaceship() override {
+    if (assigned == 0) {
+        assigned =1;
+        return "shuttle";
+    }
+    else{
+        return name + " Already associated with an spaceship ";
+    }
 }
 
-string suitableSpaceship() override {
-return "shuttle";
-}
 };
 
 #endif // FINELCPP_PROJECT_MIDSHIPMAN_H

@@ -14,8 +14,8 @@ private:
     const int destroyerSpeed = 2000;
     const int rocketSpeed = 3000;
     std::string spaceship_Name;
-    std::string pilot_Name;
-    double x, y, update_x = 0, update_y = 0, rocket_x = 0, rocket_y = 0, updateRocket_x = 0, updateRocket_y = 0;
+    std::string pilot_Name, destName;
+    double x, y, update_x = 0, update_y = 0, rocket_x = 0, rocket_y = 0, updateRocket_x = 0, updateRocket_y = 0, dest_x =0, dest_y =0;
     double degree = 0;
     State state;
 

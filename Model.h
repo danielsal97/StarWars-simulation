@@ -54,20 +54,15 @@ public:
     static std::pair<double, double> parseCoordinates(const std::string& basicString);
     void status();
     void go();
+    void createAgent(const string& spaceshipName, const string& pilotName);
     void createFortress(const std::string& name, double x, double y, unsigned int amount);
-    void createAdmiral(const string& spaceshipName, const string& pilotName);
-    void createCommander(const string& spaceshipName, const string& pilotName);
-    void createMid(const string& spaceshipName, const string& pilotName);
-    void create(const string &spaceshipName , const string &pilotName,  const string& coordinates);
+    void createSpaceship(string& spaceship_type, const string &spaceshipName ,  const string& coordinates , const string &pilotName);
 
     Model(const Model&) = delete;
     Model& operator=(const Model&) = delete;
     void loadStationsFromFile(const string& filename);
     void createStation(const string& name, double x, double y, int cap, int prod);
     void startSupply(const std::string& shuttleName, const std::string& startStation, const std::string& endStation);
-    void createBomber(const string& spaceshipName, const string& pilotName, const string& coordinates );
-    void createDestroyer(const string& spaceshipName, const string& pilotName, const string& coordinates);
-    void createFalcon(const string& spaceshipName, const string& pilotName, const string& coordinates);
     void destination(const string& spaceshipName, const string& destName);
 
     void Course(const string& spaceshipName, const string& degree,unsigned int speed);
