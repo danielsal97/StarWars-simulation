@@ -12,7 +12,6 @@ class Commander : public ImperialAgent{
     string name;
 public:
     Commander(const std::string& Military_Rank, const std::string& name): Military_Rank(Military_Rank), name(name){
-        std::cout << Military_Rank << std::endl << name << std::endl;
     }
 
     string suitableSpaceship() override {

@@ -146,7 +146,6 @@ void Model::createSpaceship( string& spaceship_type, const string& spaceshipName
         return;  // Stop the creation process
     }
     pair<double, double> result = parseCoordinates(coordinates);
-    cerr<<result.first <<" "<<result.second<<endl;
     if ( spaceship_type == "falcon") {
         std::unique_ptr<Falcon> myFalcon(new Falcon(spaceshipName, result.first, result.second));
         falcons[spaceshipName] = std::move(myFalcon);
@@ -171,7 +170,6 @@ void Model::createSpaceship( string& spaceship_type, const string& spaceshipName
         destroyers[spaceshipName] = std::move(myDestroyer);
         return;
     }else{
-        cerr<<spaceship_type<<endl;
         return;
     }
     }
@@ -212,6 +210,7 @@ void Model::loadStationsFromFile(const string &filename) {
         coords.erase(std::remove(coords.begin(), coords.end(), ' '), coords.end());
         coords+=')';
         pair<double, double> result = parseCoordinates(coords);
+
         createStation(name, result.first,result.second,stoi(production),stoi(capacity));
 
 

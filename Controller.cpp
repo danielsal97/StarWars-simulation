@@ -48,8 +48,6 @@ void Controller::processCommand(int i, char **argv) {
     if (i > 1) {
         model.loadStationsFromFile(argv[1]); // Assuming argv[1] is the path to site.dat
     }
-
-
     vector<string> commandQueue;
     string command;
 

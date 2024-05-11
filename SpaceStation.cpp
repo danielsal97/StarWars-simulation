@@ -4,7 +4,7 @@
 #include "SpaceStation.h"
 #include <iostream>
 SpaceStation::SpaceStation(std::string name, double x, double y, int capacity, int productionRate)
-        : stationName(std::move(name)), x(x), y(y), crystalCapacity(capacity), crystalProductionRate(productionRate), storedCrystals(0) {
+        : stationName(std::move(name)), x(x), y(y), crystalCapacity(capacity), crystalProductionRate(productionRate) {
 }
 
 void SpaceStation::simulateTimePassing(int hours) {
@@ -35,7 +35,7 @@ void SpaceStation::updateCapacity() {
 }
 
 void SpaceStation::status() const {
-    std::cout << "Station " << stationName << " at position (" << x << "," << y << "), Inventory: " << storedCrystals << std::endl;
+    std::cout << "Station " << stationName << " at position (" << x << "," << y << "), Inventory: " << crystalCapacity << std::endl;
 }
 
 std::pair<double, double> SpaceStation::getCords() const {
