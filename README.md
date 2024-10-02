@@ -93,8 +93,8 @@ To get started with this project, follow these steps:
 Open your terminal and run the following commands:
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/danielsal97/StarWars-simulation.git
+cd StarWars-simulation 
 g++ -std=c++11 -o game *.cpp
 ./game
 ```
