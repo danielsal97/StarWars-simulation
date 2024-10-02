@@ -94,7 +94,10 @@ Open your terminal and run the following commands:
 
 ```bash
 git clone https://github.com/danielsal97/StarWars-simulation.git
-cd StarWars-simulation 
+cd StarWars-simulation
+```
+### 2. compile and run
+```bash
 g++ -std=c++11 -o game *.cpp
 ./game
 ```
